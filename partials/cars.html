@@ -1,0 +1,29 @@
+<section class="artistpage">
+    <div class="search">
+      <a href="javascript:window.history.back();" class="btn btn-left" style="float: right;">&laquo; Voltar</a>
+      <h1>Modelos</h1>
+      <label>Buscar: </label>
+      <input ng-model="query" placeholder="Buscar por Modelos:" autofocus>
+  
+      <div style="margin-top: 10px;">
+          <label class="formgroup">
+            <input type="radio" ng-model="direction" name="direction" checked>
+            Crescente
+          </label>
+          <label class="formgroup">
+            <input type="radio" ng-model="direction" name="direction" value="reverse">
+            Decrescente
+          </label>
+      </div>
+     
+    </div>
+    <ul class="artistlist" ng-show="query">
+      <li ng-animate="'animate'" class="artist cf" ng-repeat="item in cars | filter: query | orderBy: carsOrder:direction">
+        <a href="#/models/{{modelId}}/cars/{{item.codigo}}">
+          <div class="info">
+            <h2>{{item.nome}}</h2>
+          </div>
+        </a>
+      </li>
+    </ul>  
+  </section>
